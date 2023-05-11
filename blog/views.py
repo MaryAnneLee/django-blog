@@ -41,7 +41,7 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -64,6 +64,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
 
 class PostLike(View):
     def post(self, request, slug):
